@@ -1,0 +1,21 @@
+.controlContainer {
+  margin-top: 10rem;
+}
+.controlContainer > button {
+  padding: 0.75rem 2rem;
+  font-size: 1.5rem;
+  font-family: Roboto;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #007a79;
+  border-radius: 10px;
+  transition: all 0.4s;
+}
+
+.controlContainer > button:hover {
+  opacity: 0.8;
+
+  box-shadow: 0 14px 26px -12px rgb(0, 122, 121, 0.42),
+    0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgb(0, 122, 121, 0.2);
+}

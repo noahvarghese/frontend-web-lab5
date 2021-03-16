@@ -1,0 +1,43 @@
+.output {
+  margin-top: 4rem;
+}
+
+.dice {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.die {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-family: Roboto;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 5rem;
+  height: 5rem;
+}
+
+.sum {
+  margin-top: 4rem;
+  border: 2px solid black;
+  font-size: 2rem;
+  font-family: Roboto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 95%;
+  min-width: 5rem;
+  width: 10rem;
+}

@@ -1,24 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Controls } from "./components/Controls";
+import { Output } from "./components/Output";
+import { Nav } from "./components/Nav";
+import Dice from "./models/dice";
+
+interface AppState {
+  numberOfDice: number;
+  numberOfSides: number;
+  diceRoll: number[];
+}
 
 function App() {
+  const [state, setState] = useState<AppState>({
+    numberOfDice: 1,
+    numberOfSides: 6,
+    diceRoll: [],
+  });
+
+  const roll = () => {
+    const diceRoll: number[] = [];
+
+    for (let i = 0; i < state.numberOfDice; i++) {
+      const die = new Dice(state.numberOfSides);
+      diceRoll.push(die.roll());
+    }
+
+    setState({ ...state, diceRoll });
+  };
+
+  const updateNumberOfDice = (newValue: number) => {
+    setState({
+      ...state,
+      numberOfDice: newValue,
+    });
+  };
+
+  const updateNumberOfSides = (newValue: number) => {
+    setState({
+      ...state,
+      numberOfSides: newValue,
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <Controls
+        numberOfDice={state.numberOfDice}
+        numberOfSides={state.numberOfSides}
+        roll={roll}
+        updateNumberOfDice={updateNumberOfDice}
+        updateNumberOfSides={updateNumberOfSides}
+      />
+      <Output output={state.diceRoll} />
     </div>
   );
 }
