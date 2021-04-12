@@ -3,22 +3,13 @@
 No other person’s work has been used without due acknowledgement. 
 I have not made my work available to anyone else.”
 */
-import React from "react";
-import "../css/input.css";
 
-interface InputProps {
-  name: string;
-  min: number;
-  currentValue: number;
-  changeValue: (newValue: number) => void;
-}
-
-export const NumberInput = ({
+const Input = ({
   min,
   changeValue,
   name,
   currentValue,
-}: InputProps) => {
+}) => {
   const id = name.split(" ").join();
   return (
     <div className="inputContainer">

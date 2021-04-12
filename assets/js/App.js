@@ -3,27 +3,16 @@
 No other person’s work has been used without due acknowledgement. 
 I have not made my work available to anyone else.”
 */
-import React, { useState } from "react";
-import { Controls } from "./components/Controls";
-import { Output } from "./components/Output";
-import { Nav } from "./components/Nav";
-import Dice from "./models/dice";
-
-interface AppState {
-  numberOfDice: number;
-  numberOfSides: number;
-  diceRoll: number[];
-}
 
 function App() {
-  const [state, setState] = useState<AppState>({
+  const [state, setState] = React.useState({
     numberOfDice: 1,
     numberOfSides: 6,
     diceRoll: [],
   });
 
   const roll = () => {
-    const diceRoll: number[] = [];
+    const diceRoll = [];
 
     for (let i = 0; i < state.numberOfDice; i++) {
       const die = new Dice(state.numberOfSides);
@@ -33,14 +22,14 @@ function App() {
     setState({ ...state, diceRoll });
   };
 
-  const updateNumberOfDice = (newValue: number) => {
+  const updateNumberOfDice = (newValue) => {
     setState({
       ...state,
       numberOfDice: newValue,
     });
   };
 
-  const updateNumberOfSides = (newValue: number) => {
+  const updateNumberOfSides = (newValue) => {
     setState({
       ...state,
       numberOfSides: newValue,

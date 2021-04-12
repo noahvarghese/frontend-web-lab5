@@ -3,25 +3,14 @@
 No other person’s work has been used without due acknowledgement. 
 I have not made my work available to anyone else.”
 */
-import React from "react";
-import { NumberInput as Input } from "./NumberInput";
-import "../css/controls.css";
 
-interface ControlProps {
-  numberOfDice: number;
-  numberOfSides: number;
-  roll: () => void;
-  updateNumberOfSides: (newValue: number) => void;
-  updateNumberOfDice: (newValue: number) => void;
-}
-
-export const Controls = ({
+const Controls = ({
   numberOfDice,
   numberOfSides,
   roll,
   updateNumberOfDice,
   updateNumberOfSides,
-}: ControlProps) => {
+}) => {
   return (
     <div className="controlContainer">
       <Input
